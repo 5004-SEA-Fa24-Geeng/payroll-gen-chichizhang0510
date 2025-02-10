@@ -10,7 +10,7 @@ This report helps you demonstrate your understanding of the concepts. You should
    
 2. Why would you declare `List<IEmployee>` instead of `ArrayList<HourlyEmployee>`?
 
-   > Because this let us can change the data type into Linked list or Array List easily. And we also can store HourlyEmployee and SalaryEmployee. Not just limited in ArrayList and HourlyEmployee. Shortly, we can achieve polymorphism.
+   > Because this let us can change the data type into Linked list or Array List easily. And we also can store HourlyEmployee and SalaryEmployee. Not just limited in ArrayList and HourlyEmployee. Shortly, we can achieve polymorphism.[^1]
 
 3. When you have one class referencing another object, such as storing that object as one of the attributes of the first class - what type of relationship is that called (between has-a and is-a)?
 
@@ -28,7 +28,7 @@ This report helps you demonstrate your understanding of the concepts. You should
 
    > Interface just force the class who implement it to achieve all actions in it. But itself does not achieve the actions. 
    >
-   > An abstract class provide the content which the child class can use directly or rewrite. And itself do not force childs to do anything.
+   > An abstract class provide the content which the child class can use directly or rewrite. And itself do not force childs to do anything.[^2]
 
 
 7. What is the advantage of using an interface over an abstract class?
@@ -47,7 +47,7 @@ This report helps you demonstrate your understanding of the concepts. You should
    >The `main` method inside the `PayrollGenerator` class.
 
 10. How do you create a temporary folder for JUnit Testing? 
-    >In JUnit 5, we can use the `@TempDir` annotation. This ensures that the folder is automatically created before the test and deleted afterward.
+    >In JUnit 5, we can use the `@TempDir` annotation. This ensures that the folder is automatically created before the test and deleted afterward.[^3]
 
 
 
@@ -69,3 +69,17 @@ The answer to this is mostly open. We ask that you cite at least two sources to 
 >And a new module could be added to the payroll system to generate equity audit reports, flagging employees who earn significantly less than peers with comparable qualifications and roles. This system should analyze salaries at multiple stages: when new hires are onboarded, during annual salary adjustments, and after major promotions. To account for pretax benefits that could mask disparities, salary analysis should be performed using base salary (before deductions and bonuses) rather than total compensation. 
 >
 >Furthermore, anonymized salary benchmarking against industry standards can help ensure competitive and fair pay structures. These enhancements will enable the company to address salary inequities in real-time rather than relying solely on retrospective employee feedback.
+
+
+
+## References
+
+[^1]: Oracle Java Documentation - List. [https://docs.oracle.com/javase/8/docs/api/java/util/List.html](https://docs.oracle.com/javase/8/docs/api/java/util/List.html). Accessed: 2025-02-10.
+
+
+
+[^2]: Oracle Java Interface Guide - Interface. https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html. Accessed: 2025-02-10.
+
+
+
+[^3]: JUnit 5 User Guide. https://www.baeldung.com/junit-5-temporary-directory. Accessed: 2025-02-10.
