@@ -42,12 +42,12 @@ public abstract class Employee implements IEmployee {
     /**
      * Year-to-date earnings.
      */
-    private double ytdEarnings;
+    protected double ytdEarnings;
 
     /**
      * Year-to-date taxes paid.
      */
-    private double ytdTaxesPaid;
+    protected double ytdTaxesPaid;
 
     /**
      * Pretax deductions.

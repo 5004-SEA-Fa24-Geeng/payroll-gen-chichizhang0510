@@ -80,6 +80,9 @@ public class SalaryEmployee extends Employee {
         BigDecimal newYTDTaxesPaid = prevYTDTaxesPaid.add(taxes)
                 .setScale(2, RoundingMode.HALF_UP);
 
+        ytdEarnings = newYTDEarnings.doubleValue();
+        ytdTaxesPaid = newYTDTaxesPaid.doubleValue();
+
         return new PayStub(this.getName(),
                 payAfterTax.doubleValue(), taxes.doubleValue(),
                 newYTDEarnings.doubleValue(), newYTDTaxesPaid.doubleValue()
