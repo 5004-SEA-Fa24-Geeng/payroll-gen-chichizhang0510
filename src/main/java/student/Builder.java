@@ -7,7 +7,15 @@ package student;
  * them here to keep the code clean (and to help guide you).
  */
 public final class Builder {
+
+    /**
+     * Expected number of fields in an Employee CSV record.
+     */
     private static final int EMPLOYEE_CSV_FIELDS = 7;
+
+    /**
+     * Expected number of fields in a TimeCard CSV record.
+     */
     private static final int TIMECARD_CSV_FIELDS = 2;
 
     private Builder() {

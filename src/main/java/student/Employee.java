@@ -4,15 +4,30 @@ package student;
  * Abstract class Employee representing an employee's information.
  */
 public abstract class Employee implements IEmployee {
+    /**
+     * Tax rate applied to the taxable income.
+     */
     protected static final double TAX_RATE = 0.2265;
+
+    /**
+     * Extra rate for overtime pay calculation.
+     */
     protected static final double OVERTIME_EXTRA_RATE = 0.5;
+
+    /**
+     * Standard number of hours considered for regular pay before overtime applies.
+     */
     protected static final int REGULAR_HOURS = 40;
+
+    /**
+     * Number of pay periods in a salaried employee's yearly salary.
+     */
     protected static final int SALARY_PAY_PERIODS = 24;
 
     /**
      * Employee name.
      */
-    protected String name;
+    private String name;
 
     /**
      * Employee ID.
@@ -22,22 +37,22 @@ public abstract class Employee implements IEmployee {
     /**
      * Pay rate.
      */
-    protected double payRate;
+    private double payRate;
 
     /**
      * Year-to-date earnings.
      */
-    protected double ytdEarnings;
+    private double ytdEarnings;
 
     /**
      * Year-to-date taxes paid.
      */
-    protected double ytdTaxesPaid;
+    private double ytdTaxesPaid;
 
     /**
      * Pretax deductions.
      */
-    protected double pretaxDeductions;
+    private double pretaxDeductions;
 
     /**
      * Employee constructor.
@@ -88,6 +103,14 @@ public abstract class Employee implements IEmployee {
     @Override
     public double getPretaxDeductions() {
         return pretaxDeductions;
+    }
+
+    public void setYtdTaxesPaid(double ytdTaxesPaid) {
+        this.ytdTaxesPaid = ytdTaxesPaid;
+    }
+
+    public void setYtdEarnings(double ytdEarnings) {
+        this.ytdEarnings = ytdEarnings;
     }
 
     /**

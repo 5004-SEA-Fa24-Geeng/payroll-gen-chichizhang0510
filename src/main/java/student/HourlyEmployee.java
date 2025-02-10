@@ -41,11 +41,11 @@ public class HourlyEmployee extends Employee {
      */
     @Override
     protected double calculateGrossPay(double hoursWorked) {
-        double totalPay = payRate * hoursWorked;
+        double totalPay = this.getPayRate() * hoursWorked;
 
         if (hoursWorked > REGULAR_HOURS) {
             double overtimeHours = hoursWorked - REGULAR_HOURS;
-            double overtimePay = overtimeHours * (payRate * OVERTIME_EXTRA_RATE);
+            double overtimePay = overtimeHours * (this.getPayRate() * OVERTIME_EXTRA_RATE);
             totalPay += overtimePay;
         }
 

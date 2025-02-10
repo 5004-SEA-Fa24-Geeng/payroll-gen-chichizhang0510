@@ -41,7 +41,7 @@ public class SalaryEmployee extends Employee {
      */
     @Override
     protected double calculateGrossPay(double hoursWorked) {
-        return payRate / SALARY_PAY_PERIODS;
+        return this.getPayRate() / SALARY_PAY_PERIODS;
     }
 
     /**
@@ -60,7 +60,7 @@ public class SalaryEmployee extends Employee {
                 .setScale(10, RoundingMode.HALF_UP);
 
         BigDecimal taxablePay = totalPay
-                .subtract(BigDecimal.valueOf(pretaxDeductions))
+                .subtract(BigDecimal.valueOf(this.getPretaxDeductions()))
                 .setScale(10, RoundingMode.HALF_UP);
 
         BigDecimal taxes = taxablePay.multiply(new BigDecimal(TAX_RATE))
@@ -72,18 +72,18 @@ public class SalaryEmployee extends Employee {
         BigDecimal payAfterTax1 = taxablePay.subtract(taxes)
                 .setScale(2, RoundingMode.DOWN);
 
-        BigDecimal prevYTDEarnings = BigDecimal.valueOf(ytdEarnings);
-        BigDecimal prevYTDTaxesPaid = BigDecimal.valueOf(ytdTaxesPaid);
+        BigDecimal prevYTDEarnings = BigDecimal.valueOf(this.getYTDEarnings());
+        BigDecimal prevYTDTaxesPaid = BigDecimal.valueOf(this.getYTDTaxesPaid());
 
         BigDecimal newYTDEarnings = prevYTDEarnings.add(payAfterTax1)
                 .setScale(2, RoundingMode.DOWN);
         BigDecimal newYTDTaxesPaid = prevYTDTaxesPaid.add(taxes)
                 .setScale(2, RoundingMode.HALF_UP);
 
-        ytdEarnings = newYTDEarnings.doubleValue();
-        ytdTaxesPaid = newYTDTaxesPaid.doubleValue();
-
-        return new PayStub(name, payAfterTax.doubleValue(), taxes.doubleValue(), newYTDEarnings.doubleValue(), newYTDTaxesPaid.doubleValue());
+        return new PayStub(this.getName(),
+                payAfterTax.doubleValue(), taxes.doubleValue(),
+                newYTDEarnings.doubleValue(), newYTDTaxesPaid.doubleValue()
+        );
     }
 
 }

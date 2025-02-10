@@ -1,5 +1,16 @@
 package student;
 
+/**
+ * Enum representing the types of employees.
+ */
 public enum EmployeeType {
-    HOURLY, SALARY
+    /**
+     * Represents an hourly employee.
+     */
+    HOURLY,
+
+    /**
+     * Represents a salaried employee.
+     */
+    SALARY
 }
