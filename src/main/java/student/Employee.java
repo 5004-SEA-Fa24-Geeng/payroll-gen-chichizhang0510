@@ -42,12 +42,12 @@ public abstract class Employee implements IEmployee {
     /**
      * Year-to-date earnings.
      */
-    protected double ytdEarnings;
+    private double ytdEarnings;
 
     /**
      * Year-to-date taxes paid.
      */
-    protected double ytdTaxesPaid;
+    private double ytdTaxesPaid;
 
     /**
      * Pretax deductions.
@@ -105,10 +105,20 @@ public abstract class Employee implements IEmployee {
         return pretaxDeductions;
     }
 
+    /**
+     * Sets the year-to-date taxes paid.
+     *
+     * @param ytdTaxesPaid The new YTD taxes paid value.
+     */
     public void setYtdTaxesPaid(double ytdTaxesPaid) {
         this.ytdTaxesPaid = ytdTaxesPaid;
     }
 
+    /**
+     * Sets the year-to-date earnings.
+     *
+     * @param ytdEarnings The new YTD earnings value.
+     */
     public void setYtdEarnings(double ytdEarnings) {
         this.ytdEarnings = ytdEarnings;
     }
