@@ -43,9 +43,9 @@ public class HourlyEmployee extends Employee {
     protected double calculateGrossPay(double hoursWorked) {
         double totalPay = payRate * hoursWorked;
 
-        if (hoursWorked > 40) {
-            double overtimeHours = hoursWorked - 40;
-            double overtimePay = overtimeHours * (payRate * 0.5); // 加班时薪是 1.5 倍
+        if (hoursWorked > REGULAR_HOURS) {
+            double overtimeHours = hoursWorked - REGULAR_HOURS;
+            double overtimePay = overtimeHours * (payRate * OVERTIME_EXTRA_RATE);
             totalPay += overtimePay;
         }
 

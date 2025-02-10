@@ -7,7 +7,9 @@ package student;
  * them here to keep the code clean (and to help guide you).
  */
 public final class Builder {
-    
+    private static final int EMPLOYEE_CSV_FIELDS = 7;
+    private static final int TIMECARD_CSV_FIELDS = 2;
+
     private Builder() {
     }
 
@@ -23,11 +25,11 @@ public final class Builder {
      */
     public static IEmployee buildEmployeeFromCSV(String csv) {
         String[] parts = csv.split(",");
-        if (parts.length != 7) {
+        if (parts.length != EMPLOYEE_CSV_FIELDS) {
             System.out.println("Error: Invalid Employee Data.");
         }
 
-        String type = parts[0];
+        EmployeeType type = EmployeeType.valueOf(parts[0]);
         String name = parts[1];
         String id = parts[2];
         double payRate = Double.parseDouble(parts[3]);
@@ -35,13 +37,14 @@ public final class Builder {
         double ytdEarnings = Double.parseDouble(parts[5]);
         double ytdTaxesPaid = Double.parseDouble(parts[6]);
 
-        if (type.equals("HOURLY")) {
-            return new HourlyEmployee(name, id, payRate, ytdEarnings, ytdTaxesPaid, pretaxDeductions);
-        } else if (type.equals("SALARY")) {
-            return new SalaryEmployee(name, id, payRate, ytdEarnings, ytdTaxesPaid, pretaxDeductions);
+        switch (type) {
+            case HOURLY:
+                return new HourlyEmployee(name, id, payRate, ytdEarnings, ytdTaxesPaid, pretaxDeductions);
+            case SALARY:
+                return new SalaryEmployee(name, id, payRate, ytdEarnings, ytdTaxesPaid, pretaxDeductions);
+            default:
+                return null;
         }
-
-        return null;
     }
 
 
@@ -54,7 +57,7 @@ public final class Builder {
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
         String[] parts = csv.split(",");
-        if (parts.length != 2) {
+        if (parts.length != TIMECARD_CSV_FIELDS) {
             return null;
         }
 
